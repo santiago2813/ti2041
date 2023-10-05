@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="calculator">
+        <h2>Calculadora</h2>
+        <form method="POST" action="{% url 'calculate' %}"> {% csrf_token %}
+            <input type="text" name="numero1" placeholder="Ingrese el primer número" required>
+            <input type="text" name="numero2" placeholder="Ingrese el segundo número" required>
+
+            <label>
+                <input type="radio" name="operacion" value="sumar" required> Sumar
+            </label>
+            <br>
+            <label>
+                <input type="radio" name="operacion" value="restar" required> Restar
+            </label>
+            <br>
+            <label>
+                <input type="radio" name="operacion" value="multiplicar" required> Multiplicar
+            </label>
+            <br>
+            <label>
+                <input type="radio" name="operacion" value="dividir" required> Dividir
+            </label>
+
+            <button type="submit">Calcular</button>
+        </form>
+
+        {% if resultado %}
+        <div class="resultado">
+            Resultado: {{ resultado }}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
