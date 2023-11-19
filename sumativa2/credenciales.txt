@@ -1,0 +1,4 @@
+superusuario
+usuario: proyectoprincipal
+correo: santiagov.0394@gmail.com
+password: proyectoprincipal
